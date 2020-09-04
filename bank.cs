@@ -2,7 +2,7 @@
 
 namespace HeistPartTwo
 {
-    class Bank
+    public class Bank
     {
         int CashOnHand { get; set; }
         int AlarmScore { get; set; }
