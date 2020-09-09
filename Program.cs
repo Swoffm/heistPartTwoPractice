@@ -10,12 +10,12 @@ namespace HeistPartTwo
             List<IRobber> rolodex = new List<IRobber>();
 
             // creating team
-            Hacker Steve = new Hacker("Steve", 100, 25);
-            LockSpecialist Susan = new LockSpecialist("Susan", 55, 25);
-            Muscle Cyborg = new Muscle("Cyborg", 100, 75);
-            Hacker Greg = new Hacker("Old Greg", 15, 35);
-            LockSpecialist Bill = new LockSpecialist("Bill", 10, 50);
-            Muscle Selena = new Muscle("Selena", 50, 25);
+            Hacker Steve = new Hacker("Steve", 28, 10);
+            LockSpecialist Susan = new LockSpecialist("Susan", 55, 10);
+            Muscle Cyborg = new Muscle("Cyborg", 33, 7);
+            Hacker Greg = new Hacker("Old Greg", 15, 3);
+            LockSpecialist Bill = new LockSpecialist("Bill", 10, 5);
+            Muscle Selena = new Muscle("Selena", 40, 10);
 
 
             // adding team members to rolodex
@@ -98,6 +98,8 @@ namespace HeistPartTwo
 
             }
 
+            //adding random values to the bank constructor
+            Bank bank = new Bank(new Random().Next(50000, 1000000), new Random().Next(1, 101), new Random().Next(1, 101), new Random().Next(1, 101));
 
 
 
