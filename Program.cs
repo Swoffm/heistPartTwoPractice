@@ -101,7 +101,7 @@ namespace HeistPartTwo
             //adding random values to the bank constructor
             Bank bank = new Bank(new Random().Next(50000, 1000000), new Random().Next(1, 101), new Random().Next(1, 101), new Random().Next(1, 101));
 
-
+            bank.ReconReport();
 
         }
     }
