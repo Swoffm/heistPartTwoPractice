@@ -119,6 +119,13 @@ namespace HeistPartTwo
 
                 }
 
+                int teamCut = 0;
+                foreach (IRobber rob in userTeam)
+                {
+                    teamCut = teamCut + rob.PercentageCut;
+                }
+                Console.WriteLine("Team Current percentage Cut " + teamCut);
+
                 Console.WriteLine("Enter the index number of the robber you would like to add to your robbery");
                 if (Console.ReadLine() == "")
                 {
@@ -130,7 +137,15 @@ namespace HeistPartTwo
                     //if it is a number then it will be added to the team or throw an error
 
                     int indexNumber = Int32.Parse(Console.ReadLine());
-                    userTeam.Add(rolodex[indexNumber]);
+                    if (rolodex[indexNumber].PercentageCut <= teamCut + rolodex[indexNumber].PercentageCut)
+                    {
+                        userTeam.Add(rolodex[indexNumber]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("That Robber requires to high of a cut");
+                    }
+
 
                 }
                 catch
@@ -152,6 +167,12 @@ namespace HeistPartTwo
                 }
 
 
+            }
+
+            Console.WriteLine("Time for the heist");
+            foreach (IRobber rob in userTeam)
+            {
+                rob.PerformSkill(bank);
             }
 
         }
