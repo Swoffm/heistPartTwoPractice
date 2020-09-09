@@ -102,6 +102,57 @@ namespace HeistPartTwo
             Bank bank = new Bank(new Random().Next(50000, 1000000), new Random().Next(1, 101), new Random().Next(1, 101), new Random().Next(1, 101));
 
             bank.ReconReport();
+            bool addingRobber = true;
+            List<IRobber> userTeam = new List<IRobber>();
+            while (addingRobber)
+            {
+                int index = 0;
+                foreach (IRobber rob in rolodex)
+                {
+                    Console.WriteLine("---------------");
+                    Console.WriteLine("index number: " + index++);
+                    Console.WriteLine(rob.Name);
+                    Console.WriteLine(rob.SkillLevel);
+                    Console.WriteLine(rob.PercentageCut);
+                    Console.WriteLine(rob.GetType());
+                    Console.WriteLine("---------------");
+
+                }
+
+                Console.WriteLine("Enter the index number of the robber you would like to add to your robbery");
+                if (Console.ReadLine() == "")
+                {
+                    break;
+                }
+                try
+                {
+                    //this checks to see if index number entered by user is a number
+                    //if it is a number then it will be added to the team or throw an error
+
+                    int indexNumber = Int32.Parse(Console.ReadLine());
+                    userTeam.Add(rolodex[indexNumber]);
+
+                }
+                catch
+                {
+                    Console.WriteLine("You must enter a valid integer");
+                }
+
+                Console.WriteLine("would you like to add more? (yes or no) ");
+                string addMore = Console.ReadLine();
+
+                if (addMore.ToLower() == "yes")
+                {
+                    addingRobber = true;
+                }
+                else if (addMore.ToLower() == "no")
+                {
+                    addingRobber = false;
+                    break;
+                }
+
+
+            }
 
         }
     }
